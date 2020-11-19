@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorShip", "MentorShip\MentorShip.csproj", "{32B01EE1-A4A3-45D8-9596-B333E6CD19CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32B01EE1-A4A3-45D8-9596-B333E6CD19CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B01EE1-A4A3-45D8-9596-B333E6CD19CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B01EE1-A4A3-45D8-9596-B333E6CD19CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B01EE1-A4A3-45D8-9596-B333E6CD19CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {165E96B2-E813-40B1-AB39-05F0BCA1C050}
+	EndGlobalSection
+EndGlobal
