@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "Design_Pattern";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="text-align: justify;margin-top: 20px;margin-bottom: 30px;font-family: 'Noto Serif', serif;">
+    <h2> Design Pattern nedir, neden ihtiyaç duyarız, ne zaman kullanmalıyız, kullanmalı mıyız, artıları-eksileri nelerdir?</h2>
+    <br />
+    Önce pattern nedir ona bakalım, pattern bir sorun için üretilmiş tekrar tekrar (birden fazla sorun için de) kullanılabilir bir çözümdür.
+    <br /><br />
+    Burada kullandığımız design patternler ise bir yazılım projesinden sıklıkla karşılaştığımız benzer sorunlar üzerinden yola çıkarak Code Optimization'ı en iyi şekilde yapabilmemizi sağlayan yapıdır. Elbetteki bu yapılar bizden önce benzer problemlerle daha önce karşılaşmış olan, uzun uğraşlar ve incelemeler sonunda en optimize şekilde nasıl bir çözüm getirebiliriz düşüncesinde olan kişiler tarafında bulunmuştur ve hepside kullanılabilirlik, uygulanabilirlik açısından oldukça iyidirler. Aslında iyi demek yetmez biz bilgisar mühendislerinin ve diğer bütün yazılım alanında çalışan herkesin hayatını ciddi bir biçimde kolaylaştırmıştır.
+    <br /><br />
+    Artıları eksileri nelerdir peki design pattern kullanmamızın onlara bakalım. Öncelikle şunu belirmekte fayda var eğer üniversite yıllarına yeni başlamışsanız ve genelde öğretildiği gibi OOP(Object Oriented Programing: Nesneye Dayalı Programlama) fikri halen bir şey ifade etmiyorsa sıkıntı etmeyin ileriki yıllarda alacağınız tasarım ve software derslerinin içeriğindeki design patterlerini ögrendikten sonra hayatın nasıl kolaylaştığını göreceksiniz. Eksileri ise kısaca şöyle diyebiliriz yapısal olarak elbette kod okunulabilirliği ve tekrar kullanılabilirliği açısından son derece güzeldirler ancak eksi yanları da yok değil örneğin design patternleri kullanarak performans beklediğiniz bir işten yeterince verim alamayabilirsiniz. Mesela mvc yapsını kullanan Hibernate gibi.
+    <br /><br />
+    <h3>Bütün sorunlar çözülmüşmüdür, sadece belirtilen patternleri mi kullanabiliriz ?</h3>
+    <br />
+    Hayır ,bu baglamda tabiki daha önceden keşfedilmiş kullanımı,getirdiği çözüm kolaylıkları ile bilinen diğer bütün Design Patterlerini dikkatlice inceledikten sonra kendimiz açısından yeni bir yapıya ihtiyaç duyup duymadığımızı belirlememiz lazım. Eğer var olanlar arasında işimizi görecek olanı bulduysak, örnek kullanımlarından yola çıkarak kendi projemizi o pattern üzerinden yapabiliriz. Ancak bilgimiz ve gereksinimlerimiz var olanlar arasında bir seçim yapmamızın bizi zora sokacağı kanısını gösteriyorsa yeni bir pattern geliştirip kullanabiliriz.
+
+    Bize ait olan bu pattern elbetteki yüzde yüz orijinal olmayabilir digerleri üzerinden gerekli değişiklikler yapılarak ihtiyaçlarımız dogrultusunda yapılandırabiliriz. Burada dikkat etmemiz gereken nokta yeni yapının tanımlandığı sorunlar, getirdiği çözümlerin farklılığı, farklı sorunlara uygulanabilirliği gibi özellikleri ile ön plana çıkmasıdır. Şayet var olanlar arasında yukarıda bahsettiğimiz gibi getirdiği çözümler, tanımı ve kullanım olarak bir fark yoksa yada iyileştirme yapamıyorsak en mantıklısı bu özellikleri kanıtlanmış olanları kullanalım.
+
+    Şimdi Design Patternler arasında bir kaç tanesini inceleyim. Ve öncelikle şunu belirtelim hiçbir design pattern bir diğerinden daha iyidir ya da daha kötüdür diyemeyiz çünkü herbiri farklı problemlere çözüm getirmektedir. Dolaysıyla hepsi de kendi farklı yapıları dolayısıyla önemlidir.
+    <br /><br />
+          <h4>MVC</h4> 
+    <br /><br />
+    Design Patterler arasında eminim herkesinde en çok duyduğu MVC olacaktır. Model(Veri-DB), View(arayüz) ve Controller(orta katman) olarak basitce üçe ayılmaktadır. Günümüzde de en çok kullanılan design patternlerden birisidir.Buradaki temel amaç hem geliştirici açısından hemde kullanıcı açısında kolaylık sağlamaktır. Nasıl: Geliştirici açısında bakacak olursak bir projeyi model-view-controller olarak ayırmamız her parçanın ayrı ayrı eş zamanlı geliştirilmesi demektir aynı zamanda daha sonradan herhangi bir kısmında (model-view-cotroller arasında) değişiklik yapmak istersek bütün bi projede tekrardan değil de sadece ilgili kısımda çalışmamızı sağlayacaktır.
+    <br /><br />
+          <h4>MVC nasıl çalışır:</h4>
+    <br /><br />
+    Model kısmı veritabanı yada direk olarak verinin tutulduğu yer olarak belirtilebilir,View kısmı ise verinin orta katmanda işlendikten sonraki kısmını kullanıcıya göstermek için kullanılar herhangi bir arayüz olarak belirtilebilir ve en sonra olarakta Controller ise orta-katman yani verini işlendiği kısımdır. Kullanıcı arayüzden herhangi bir action başlattığında önce orta katmanda işlenir eğer işlem model kısmına erişim gerektiren bir iş ise kullanılan yollarda MVC modellerine göre farklılık gösterir. MVC temel olarak üç farklı modele sahiptir. Birincisi model, view ve controller'ın birbirinden bağımsız olmasıdır hepsi birbirine direk olarak bağlıdır, ikinci modelde view ile model-controller olarak ikiye ayrılmıştır yani view model ve controllerın birlikte oluşturduğu composite yapıya bağlıdır, üçüncü modelde ise view sadece controller'a ve model de sadece controller'a bağlıdır yani modelden arayüz kısmına bir state değişimi haberi verilcekse bu haber controler üzerinden yapılır yani view'ın model'e direk bağlantısı yoktur.
+
+    Nerelerde kullanılmaktadır mesela (şuanda benim kullandıklarım arasında) web2py framwork ve play framework MVC model 3 kullanmaktadırlar.
+    <br /><br />
+    <h4>Observable MVC nedir</h4>
+    <br /><br />
+    Observable MVC ise yukarıdaki örnekte (model 3) bahsettiğimiz yapıda herhanği bir state değişimi esnasında birimlerin aynı anda uyarılması demektir. Yani database kısmındaki sürekli yada anlık değişimlerden haberdar olmak isteyen bir kullanıcınız varsa sistemi observable olarak kurarsanız hem yapısal olarak hemde kullanıcı açısında kolaylık sağlayacaktır. Bunun için db kısmını observable olarak view kısmınıda observer olarak tanımlamız ve notifications için gerekli fonksiyonel düzenlemeleri yapmamız yeterli olacaktır.(bk: head first design patterns ch:12)
+    <br /><br />
+    <h4>Strategy pattern</h4>
+    <br /><br />
+    Burada bizim işimize yarayacak olan pattern söyle bir çözüm getirmektedir karmaşık bir yapı karşısında hangi algoritmayı kullanacağımızı bilmiyorsak ancak aynı interface'i implement eden farklı classların (tabiki buradaki fark classların farklı çözüm getirmeleri e.g: bir sort işlemi için her bir classta değişik algoritma türleri kullanılabilir.) aynı iş üzerinde execute edilmeleri olabilir.
+    <br /><br />
+    <h4> Mediator pattern</h4>
+    <br /><br />
+    Mediator pattern ise yine complex yapılarda sıklıkla kullanılır, loose coupling (zayıf bağ) yöntemi ile birbiri arasında çok fazla etkileşim ve ağ kurulan classlar arasında, özellikle bir sistemi kontrol ederken yada bir mail trafiğinden kimler girip çıkmış bunları track ederken kullanılabilir.
+    <br /><br />
+    <h4>Iterator pattern</h4>
+    <br /><br />
+    Iterator pattern hemen herkes bu patterni sıklıklar kullamıştır bazen bir çözüm için illaki pattern kavramını bilmenize gerek yok belkide farkında olmadan kullandığınız yöntemler zaten var olan bir pattern'e benziyor olabilir. Iterator pattern ise data setini bu data setinden bagımsız olarak iterate edebilmemizi sağlayan bir patterndir. e.g java: iterator.
+    <br /><br />
+    <h4>Facade pattern</h4>
+    <br /><br />
+    Bu pattern aslında en sevdiklerim arasındadır belki isminden belkide yapısal olarak getirdiği çözümden kaynaklanıyor olabilir.
+
+    Facade pattern şöyleki örnek verecek olursak, elimizde birden fazla parçadan oluşan ancak hepsi bir bütün olarak çalışan bir sistem yada yapımız varsa burada Facade pattern'ı kullanmak akıllıca olacaktır (e.g: cpu, mem.. bilgisayar). Facade pattern işlevi gereği kendi alt sınıfının bütün özelliklerini yansıtır ancak her bir parçayı da ayrı ayrı olarak kullanabiliriz e.g: cpu,mem.. vb birimlerini implemente eden bir örnek uygulamamız var ve biz bu yapıların hepsini Facade pattern kullanarak ortak bir yapı altında topladık ve isminede bilgisayar diyelim. Bilgisayar alt yapılarını bütün özelliklerini gösterdiği gibi bu altsınıflar ayrı olarakta iş yapabilirler. En basit haliyle Facade pattern.
+    <br /><br />
+    <h4>Composite pattern</h4>
+    <br /><br />
+    Bunu en basit haliyle şöyle anlatabiliriz şimdik sizin elinizde bir mekanik parçalar var bunlardan yine mekanik bir otonom yapı oluşturmak istiyorsunuz en başında elinizdeki herbir single parçaya tool diyelim siz bu tool ları birleştirerek yeni bir tool oluşturuyorsunuz ve oluşan tool yine aynı class yapısına sahip. Buradaki hiyerarşik yapıyı farkettiniz mi toollar birleşerek yine bir tool oluşturyor ancak bu toollarda başka toollardan oluşuyor. Aşağıdaki örnek umarım açıklayıcı olacaktır.
+    <br /><br />
+    <h4>Prototype pattern</h4>
+    <br /><br />
+    Prototype pattern ise yine kullanım açısında gayet kolaylıkla uygulabilecek bir yapıya sahiptir. Kolaylıkla uygulanabilir diyorum çünkü her bir pattern farklı amaçla için kullanıldığından MVC gibi bir yapıyı daha önce hiç bir design pattern kullanmadan oluşturduğunuz sisteme entegre etmeye çalışırsanız bu aynı projenin yeniden inşaası demektir. Gelelim Prototype pattern'e buradaki amacımız olşacak state çeşitliliklerini en aza indirmek ve bir objenin yeni baştan yaratma işinin maliyetini göz önünde bulundurmaktır (e.g: JVm de new ile yeni bir instance yaratmak) yerine var olanı kopyalıyoruz. Burada söyle bir örnekte verebiliriz elimizde bir araba tasarımınız olsun bunu sürekli olarak yenilemek yerine (tabi burada aynı işi yapan modellerden bahsediyoruz) var olanın kopyalarını çıkartmak daha ucuza gelecektir.
+    <br /><br />
+    <h4>Abstract factory pattern</h4>
+    <br /><br />
+    Abstract factory pattern ise elimizdeki concrete classların (aynı interface'i implemente eden) ayrı ayrı new ConcreteClass() diyerek yaratmak değildi bir merkezi factory'e bağlı olarak yaratmak daha az maliyetli olacaktır. Mesela (Head First Design patterns kitabından) bir örnek verelim.
+    <br /><br />
+    Sırasıylar üretimde olan ördeklerimiz olsun ve bu ördeklerimizin herbirinin ayrı bir class'ı olsun ve ayrıca da ortak bir interface'i implemente etsinler:
+    <br /><br />
+    interface ismi: Quackable
+    <br />
+    ördek 1 : MallardDuck
+    <br />
+    ördek 2 : RedheadDuck
+    <br />
+    ördek 3 : RubberDuck olsun bunları yaratırken şöyle deriz
+    <br />
+    Quackable ördek1 = new MallardDuck()
+    <br />
+    Quackable ördek2 = new RedheadDuck()
+    <br />
+    Quackable ördek3 = new RubberDuck()
+    <br /><br />
+    aslında bütün classları eklemek yerine sadece bunların üretimi ile ilgili bir abstract class yaratırız ve instanceları oaradan çağırırız.
+    <br /><br />
+    public abstract class AbstractFactory(){
+    <br />
+    Quackable createMallardDuck();
+    <br />
+    Quackable createRedHeadDuck(),
+    <br />
+    Quackable createRubberDuck();
+    }
+    <br /><br />
+    ve sonrasında DuckFactory diye başka bir class yaratalım ve üsteki abstract class'ımınız extend edelim ve methodlarımızı yazalım
+
+    e.g:
+    <br />
+    public Quackable createMallardDuck(){
+    <br />
+    return new MallardDuck();
+    }
+</div>
+

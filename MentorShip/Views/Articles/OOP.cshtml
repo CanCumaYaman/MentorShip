@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "OOP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="text-align: justify;margin-top: 20px;margin-bottom: 30px;font-family: 'Noto Serif', serif;">
+
+    <h2>Nedir Bu OOP</h2>
+    <br />
+    OOP, adından anlaşılacağı gibi nesneye dayalı bir programlama tekniğidir. Yani bu programlama tekniğinde her şey nesneden (object) ibarettir. Peki nedir bu nesne? Nesne var olan ya da inşa ettiğimiz yapılarımızın(type veya sınıf da diyebiliriz.) temsilcileri ya da örnekleridir diyebiliriz. Gerçek hayattan örnek verecek olursak; Türlerimizin bir örneği olduğumuza göre hepimiz birer nesneyiz. Gördüğümüz her şey bir nesne. Etrafımızda var olan şekil almış her şey birer nesnedir.
+    Temelinde OOP yatan 2 türlü programlama dili vardır.
+    <br /><br />
+    1. Class temeline dayalı. Ornek verecek olursak, C#.
+    <br />
+    2. Prototip temeline dayalı. Ornek verecek olursak, Javascript.
+    <br /><br />
+    <h3>OOP Nerden Çıktı? Neden ihityaç Duyuldu</h3>
+    <br />
+    Eğer benim gibi yazılımla geç tanışmış biri iseniz, doğrudan bu yazılım paradigmasının(OOP) içine düşmüşsünüzdür demektir. Sanki yazılım dünyasında hep varmış gibi. Ancak pek de öyle değil.
+    İlk olarak 1966 veya 1967 yılında Alan Kay tarafından atılan bu terim günümüzün en popüler yazılım geliştirme paradigmasıdır. Geniş anlamda tanınmış ve kabul edilmiş ilk programalama dili ise 1965 yılında geliştirilmeye başlamış olan Simula’dır. Simula 1967 yılında kullanılmaya başlamıştır. İçerisinde bugün olmazsa olmazlarımız ;class, inheritance, subclass ve virtual method özelliklerini barındırır. Daha öncesine gidecek olursak, Ivan Sutherland’in Sketchpad uygulaması OOP için ilham kaynağı olmuştur. 1961 ve 1962 yıllarında oluşturulan tez 1963 yılında yayınlanmıştır.
+    Daha önce uygulanan yazılım paradigmaları, tam olarak gerçek dünyada karşılığını bulamıyordu. Tekrar eden kod neredeyse kaçınılmaz hale gelmekle birlikte, icat edilen şeyi tekrar icat etmek gerekiyordu.(Öyle diyorlar :)) Deyim yerinde ise tekerlek her seferinde yeniden icat ediliyordu. OOP ise tam olarak gerçek dünyamızın bir karşılığıdır diyebiliriz. Her şeyi bir kenara bırakırsak amaç; readable, resusable, extendable ve maintainable bir yapı oluşturmaktır.
+  <br /><br />
+    <h3>OOP Biraz Daha Detaylandıralım</h3>
+    <br /><br />
+    OOP genel anlamda 3 ana başlığa odaklanır. Encapsulation, Inheritance ve Polymorphism. Bunlara ek olarak Abstraction’ı da ekleyebiliriz.
+    Peki bunlar nedir, neyi amaçlar?
+    <br /><br />
+    <h4>Abstraction</h4>
+    <br />
+    Abstraction, gereksiz detayları göz ardı ederek ve bir amaç için neyin önemli olduğuna odaklanarak sınıfları tanımlama sürecidir. Belirli bir uygulama için neyin uygun olduğuna odaklanmak için gereksiz ayrıntıların soyutlanması ile ilgilenir. Buradan yola çıkacak olursak etrafımızda gördüğümüz her şey aslında abstraction’a dahildir.Yani görebildiğimiz kadar varlar. Soyutlanmış şekilde. Örnek verecek olursak, kullandığımız telefon, içinde barındırdığı yapının soyutlanmış halidir.
+    <br /><br />
+    <h4>Encapsulation</h4>
+    <br />
+    Encapsulation, oluşturduğumuz yapı içerisinde detayları gizleme ve/veya kapsulleme için kullanılan tekniktir diyebiliriz. Yine telefon üzerinden devam edecek olursak; Bizim erişebilceğimiz butonlarımız var.(Gerçi pek kalmadı :)) Bu butonlar ile işlem yaparken arka tarafta verinin nerede tutulduğu ya da arka tarafta olan işlemlere vs gibi özelliklere erişimiz kapalı. Biz sadece public olan özelliklere erişebiliyoruz.(Bakınız; Access Modifiers)
+    <br /><br />
+    <h4>Inheritence</h4>
+    <br />
+    Inheritence, bir nesnede olan bir özelliğin başka nesneye aktarılması ile ilgilidir. Anne-babadan çocuğuna geçen özellikleri örnek olarak verebiliriz. Burada amaç reusebility’i sağlamaktır. Miras alınan class Base class yada Super-Class, Miras alan ise Sub Class ya da Derived Class olarak adlandırılır.
+    <br /><br />
+    <h4>Polymorphism</h4>
+    <br />
+    Polymorphism, bir Base Class içerisinde yer alan bir davranışı, Derived class içerisinde değiştirilebilme yeteneğinin sağlanabilmesi ile ilgilenir. Yani Base class içerisinde davranış ovveride edilebilmektedir. Günümüz koşullarında örnek verecek olursak; her futbolcunun kendine has özellikleri vardır. Futbolcu bizim Base Class’ımız. Ve mevkiler vardır. Defans, Orta Saha, Forvet. Bunlarda bizim Derived class’larımız olsun. Her futbolcu pas atabilir. Ama tüm mevkideki futbolcular aynı şekilde pas atamaz. Bu yüzden pas ile ilgili özellik mevkiye göre ovveride edilebilir..
+    <br /><br />
+    <h4>Class Ve Object(Nesne) İlişkisi</h4>
+    Class, oluşturulan type’ın tanımıdır. Uygulama içerisinden dışarya açacağımız ya da uygulama içinde kullanacağımız data formatı için tanımdır. Object(Nesne) ise ilgili class’ın instance’ıdır. Yani Firma adında bir Class’ımız olsun firma türünden oluşan X Firması da Instance olmaktadır.
+    <br /><br />
+    <h3>Object Oriented Design’ın 5 Şartı</h3>
+    <br />
+    OOP bir dil ile geliştirme yapıyorsak bu OOP’u uyguluyoruz demek değildir.Başlangıçta belirtmiştim, herkes bir şekilde fikir sahibi ancak uygulama da pek de başarılı değiliz. İşte bu başarıyı yakalamak için şart olan S.O.L.I.D. prensiplerine uymak. Adını oluşturan prensiplerin baş harflerinden oluşmaktadır.
+    <br /><br />
+    1. S - Single-responsibility principle
+    <br />
+    2. O - Open–closed principle
+    <br />
+    3. L - Liskov substitution principle
+    <br />
+    4. I - Interface segregation principle
+    <br />
+    5. D - Dependency inversion principle
+    <h3>Single Responsebility Pricinple</h3>
+    <br />
+    Single responsebility prensibi, Bir class’ın değiştirilmek için tek sebebinin olması gerektiğine dayanır. Bundan yola çıkarak tek sorumluluk üstlenip, tek bir iş yapması gerektiğini belirtir.
+    <br /><br />
+    <h3>Open–closed principle</h3>
+    <br />
+    Open-Closed prensibi, oluşturulan yapının gelişme açık ancak değişime kapalı olması gerektiğini belirtir. Bu sayede eklenen ek özellik var olan değiştirilerek değil de yeni bir özellik eklenerek yapılıyor. Oluşturulan yapının extend edilmesi ile ilgili prensiptir.
+    <br /><br />
+    <h3>Liskov substitution principle</h3>
+    <br />
+    Liskov substitution prensibi, Sub Class(Türetilen(Derived)), Base Class’ın yerine kullanılabilmesi gerektiği ile ilgilenir. Yani Base Classs’ı kullandığın yerde Sub Class’ı da kullanabilmesi gerektiğini belirtir. Buradan yola çıkarsak Sub Class’ların herhangi birinde olmayan özelliğin Base Class içerisinde de olmaması gerekir.
+    <br /><br />
+    <h3>Interface segregation principle</h3>
+    <br />
+    Interface segregation prensibi, Single responsebility prensibinin(SRP) interface hali diyebiliriz. Şöyleki, uygulamalarımızda karmaşıklığı ve bağımlılığı azaltmak için interface’leri sıklıkla kullanırız. İlgili interface’i imlemente edecek class’ın da SRP’ten şaşmaması gerekmektedir. Bundan yola çıkarak interface’lerin, yapılabilecek en küçük iş birimi şeklinde ayrılması gerektiğini belirtir.
+    <br /><br />
+    <h3>Dependency inversion principle</h3>
+    <br />
+    Dependency inversion prensibi, bağımlılıkların terse çevrilmesi gerektiği ile ilgilenir. Üst seviye işlem yapan method veya sınıfların alt method veya sınıf ile olan bağlantısının terse çevilmesidir. Alt seviye method ve sınıflar sıklıkla değişip geliştiği için üst seviyenin minimum seviyede hatta etkilenmemesi gerektiği ile ilgili prensiptir.
+    <br /><br />
+    OOP, günümüzde en çok kullanılan yazılım paradigmasıdır. Hal böyleyken kod içerisinde anlatmak ne kadar basitse, high level olarak anlatmak bir o kadar zor. Bende koda bulaşmadan high level olarak anlatmaya çalıştım. Umarım keyif aldığınız bir yazı olmuştur.
+</div>
+

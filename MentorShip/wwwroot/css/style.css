@@ -1,0 +1,375 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: Montserrat;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sutun {
+    float: left;
+    width: 100%;
+    padding: 1rem;
+}
+
+.temizle::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.kapsam {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+
+nav {
+    width: 100%;
+    font-family: Montserrat;
+    background-color: #FFFAFA !important;
+    
+    color: #fff;
+    padding-top: 4.4rem;
+    padding-bottom: 4.4rem;
+    position: fixed;
+    z-index: 500;
+}
+
+#logo-box {
+    float: left;
+    padding-top: .5rem;
+}
+
+    #logo-box .logo {
+        color: #2C3E50 !important;
+        
+        font-weight: 700;
+        font-size: 3.2rem;
+    }
+
+        #logo-box .logo:hover {
+            text-decoration: none;
+        }
+
+#nav-links {
+    float: right;
+}
+.nav-item btn-outline-success {
+    transition:color 0.6s;
+}
+
+
+    #nav-links .nav-item {
+        float: left;
+        margin: .4rem;
+    }
+
+    #nav-links .nav-link {
+        color: #2C3E50 !important;
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: block;
+        padding: 1.6rem;
+        letter-spacing: .1rem;
+        transition: color .6s;
+    }
+
+        #nav-links .nav-link:hover {
+            color: #28A745;
+        }
+
+    #nav-links .nav-icon {
+        display: none;
+    }
+
+.dropdown-item:hover {
+    color: #28A745;
+    
+}
+
+@media (max-width: 1200px) {
+
+    #logo-box {
+        float: none;
+        text-align: left;
+    }
+
+    #nav-links {
+        float: none;
+    }
+
+
+        #nav-links.responsive li:not(:first-child) {
+            display: none;
+        }
+
+        #nav-links .nav-link {
+            font-size: 2rem;
+            padding-left: 0;
+        }
+
+        #nav-links .nav-item {
+            float: none;
+            text-align: left;
+        }
+
+        #nav-links .nav-icon {
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            font-size: 3rem;
+        }
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+/*
+    Login Launch
+*/
+
+
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+header {
+    background-color: white;
+    padding-top: 16rem;
+}
+
+.col4-item {
+    color: #2C3E50;
+    transition: color .3s;
+    cursor: pointer;
+}
+
+    .col4-item:hover {
+        text-decoration: none;
+        color: #18bc9c;
+    }
+
+.col4-link:hover {
+    text-decoration: none;
+}
+
+.col8-margin {
+    margin: 13px;
+}
+
+.resimler {
+    width: 33%;
+    display: inline-block;
+}
+
+.opacity {
+    transition: opacity 1s;
+}
+
+    .opacity:hover {
+        opacity: 0.6;
+    }
+
+.footer-links {
+    color: white;
+    transition:color 0.8s;
+}
+
+    .footer-links:hover {
+        color: teal;
+    }
+
+
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+.register {
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.register-left {
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+
+    .register-left input {
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
+        width: 60%;
+        background: #f8f9fa;
+        font-weight: bold;
+        color: #383d41;
+        margin-top: 30%;
+        margin-bottom: 3%;
+        cursor: pointer;
+    }
+
+.register-right {
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+
+.register-left img {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+.register-left p {
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+
+
+.register .register-form {
+    padding: 10%;
+    margin-top: 10%;
+}
+
+.btnRegister {
+    float: right;
+    margin-top: 10%;
+    margin-left:35%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 30%;
+    cursor: pointer;
+}
+
+.register .nav-tabs {
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+
+    .register .nav-tabs .nav-link {
+        padding: 2%;
+        height: 34px;
+        font-weight: 600;
+        color: #fff;
+        border-top-right-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+    }
+
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+
+        .register .nav-tabs .nav-link.active {
+            width: 100px;
+            color: #0062cc;
+            border: 2px solid #0062cc;
+            border-top-left-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+
+.register-heading {
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+    padding-left:26%;
+    
+}

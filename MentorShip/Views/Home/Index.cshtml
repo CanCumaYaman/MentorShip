@@ -1,94 +1,420 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model MentorShip.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section style="padding-top: 12px; ">
+    <div id="id01" class="modal" style="z-index: 500;">
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
+        <form class="modal-content animate" action="/Login/SignInStudent/" method="post">
+            @Html.AntiForgeryToken()
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="~/images/Login4.png" alt="Avatar" class="img-fluid" style="height: 300px;">
             </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
+            <div class="container">
+
+
+
+                <input type="text" class="form-control" name="Email" placeholder="Email Adresiniz" id="mailclk" required aria-label="Username" aria-describedby="basic-addon1" style="font-size: medium;">
+                <br>
+
+                <input type="password" class="form-control" name="Parola" placeholder="Şifreniz" required aria-label="Username" aria-describedby="basic-addon1" style="font-size: medium;">
+                <br>
+                <button type="submit" class="btn btn-block btn-outline-success btn-lg" id="signclick">Login</button>
+                <br>
+                <label style="font-size: medium; margin-left: 0%;">
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-lg btn-danger">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
     </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
+    <div id="id02" class="modal" style="z-index: 500;">
+
+        <form class="modal-content animate" action="/Login/SignInMentor/" method="post">
+            @Html.AntiForgeryToken()
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="~/images/Login4.png" alt="Avatar" class="img-fluid" style="height: 300px;">
+            </div>
+
+            <div class="container">
+
+                <input type="text" class="form-control" name="Email" placeholder="Email Adresiniz" aria-label="Username" aria-describedby="basic-addon1" style="font-size: medium;">
+                <br>
+                <input type="password" class="form-control" name="Parola" placeholder="Şifreniz" aria-label="Username" aria-describedby="basic-addon1" style="font-size: medium;">
+                <br>
+                <button type="submit" class="btn btn-block btn-outline-success btn-lg">Login</button>
+                <br>
+                <label style="font-size: medium; margin-left: 0%;">
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-lg btn-danger">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
     </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>
+</section>
+<header>
+    <div class="container">
+        
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="resimKapsayıcı">
+                            <a href="/Articles/Yazılım_Geliştirici_Yol_Haritası"><img class="d-block w-100" src="~/images/yazilim.jpg" alt="First slide" style="opacity: 1;"></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="resimKapsayici">
+                            <a href="/Articles/OOP" class="imglink"><img class="d-block w-100" src="~/images/oop.jpg" alt="First slide"></a>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item active">
+                        <div class="resimKapsayıcı">
+                            <a href="/Articles/SOLID" class="imglink"><img class="d-block w-100" src="~/images/solid.png" alt="First slide"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-8">
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/design.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title ">Design Patterns</h5>
+                        <p class="card-text" id="metin">
+                            Hepimiz yaşantımızda bir konuda problemlerle karşılaşmış ve buna kendimizce çözümler üretmişizdir.
+                        </p>
+                        <a href="/Articles/Design_Pattern" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="card" style="width: 100%;">
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 2.7rem; text-align: center;">En Çok Okunanlar</h5>
+                        <a href="#" class="col4-link"><li class="col4-item"><i class="fas fa-newspaper"></i> Yazılım Geliştirici Yol Haritası</li></a>
+                        <a href="#" class="col4-link"><li class="col4-item"><i class="fas fa-newspaper"></i> Nesne Yönelimli Proglamlama Nedir?</li></a>
+                        <a href="#" class="col4-link"><li class="col4-item"><i class="fas fa-newspaper"></i> SOLID Prensipleri Nedir?</li></a>
+
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>Categories</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <ul class="list-unstyled">
+                                    <li class="col4-item"><a href="#" class="col4-item">Web Design</a></li>
+                                    <li class="col4-item"><a href="#" class="col4-item">Angular</a></li>
+                                    <li class="col4-item"><a href="#" class="col4-item">Html</a></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <ul class="list-unstyled">
+                                    <li class="col4-item"><a href="#" class="col4-item">Java Script</a></li>
+                                    <li class="col4-item"><a href="#" class="col4-item">Html</a></li>
+                                    <li class="col4-item"><a href="#" class="col4-item">Angular</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-8">
+
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/ef.png" alt="Card image cap">
+                    <div class="cards-body col8-margin">
+                        <h5 class="card-title ">Entity Framework</h5>
+                        <p class="card-text" id="metin">
+                            Entity Framework ORM(Object Relational Mapping) araçlarından biridir.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/react.jpg" alt="Card image cap">
+                    <div class="cards-body col8-margin">
+                        <h5 class="card-title ">React</h5>
+                        <p class="card-text" id="metin">
+                            Facebook tarafından üretilmiş, kullanıcı ara yüzleri oluşturmak için kullanılan bir javascript kütüphanesidir.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/identity.jpg" alt="Card image cap" style="height:350px;">
+                    <div class="cards-body col8-margin">
+                        <h5 class="card-title ">Identity</h5>
+                        <p class="card-text" id="metin">
+                            Kullanıcı yönetiminin gerçekleştirilmesi amacıyla Microsoft tarafından 2013 yılında “ASP.Net Identity” frameworkü ortaya konulmuştur.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/member.jpg" class="card-img" alt="..." style="height: 190px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Membership</h5>
+                                <p class="card-text">“Membership”, geliştirilen bir web sitesinden üyelik işlemleriyle ilgili gereksinimleri çözen, “Forms Authentication” mantığıyla çalışan ve “SQL Server” üzerinde kullanıcı bilgilerini saklayan bir yapıya sahiptir.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/lock.png" class="card-img" alt="..." style="height: 230px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">ASP.Net Identity</h5>
+                                <p class="card-text">Kullanıcı yönetiminin gerçekleştirilmesi amacıyla Microsoft tarafından 2013 yılında “ASP.Net Identity” frameworkü ortaya konulmuştur.“ASP.Net Identity”, “ASP.Net Membership” in devamı sayılabilecek bir niteliktedir.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/bootstrap.png" class="card-img" alt="..." style="height: 120px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Bootstrap</h5>
+                                <p class="card-text">Açık kaynak kodlu, ücretsiz bir CSS frameworktür, tasarım aracıdır.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/masterpage.png" class="card-img" alt="..." style="height: 190px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Master Page Nedir?</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/redis.png" class="card-img" alt="..." style="height: 190px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">REDİS</h5>
+                                <p class="card-text">Redis, open source olarak geliştirilmiş ve gün geçtikçe popülerliliğini arttıran bir NoSQL (Not Only SQL) veritabanıdır.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/images/mvc.png" class="card-img" alt="..." style="height: 170px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">MVC</h5>
+                                <p class="card-text">Model, View ve Controller kelimelerinden oluşturulmuş bir yazılım geliştirme desenidir.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/server.jpg" alt="Card image cap" style="height:500px;">
+                    <div class="card-body">
+                        <h5 class="card-title ">SERVER</h5>
+                        <p class="card-text" id="metin">
+                            Teknik olarak ele alındığında sunucu; verilerin, bilgisayar ağları üzerinden kullanıcıların erişimine açık olarak barındırıldıkları bilgisayar sistemlerine verilen isim.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/agile.png" alt="Card image cap" style="height:500px;">
+                    <div class="card-body">
+                        <h5 class="card-title ">Agile</h5>
+                        <p class="card-text" id="metin">
+                            Çevik yazılım geliştirme; yinelemeli (iterational) olarak yazılım geliştirme sürecinin aktivitelerinin uygulanması ve tedrici (incremental) olarak yazılım ürününün doğru bir şekilde, değişime açık, Agile(Çevik) Birliği’nin oluşturduğu değerler ışığında prensiplerini uygulayarak geliştirilmesidir.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="~/images/scrum.png" alt="Card image cap" style="height:500px;">
+                    <div class="card-body">
+                        <h5 class="card-title ">SCRUM</h5>
+                        <p class="card-text" id="metin">
+                            Hepimiz yaşantımızda bir konuda problemlerle karşılaşmış ve buna kendimizce çözümler üretmişizdir.
+                        </p>
+                        <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1.5rem;">Daha fazla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/lights.jpg" target="_blank">
+                        <img src="~/images/chip.jpg" alt="Lights" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/nature.jpg" target="_blank">
+                        <img src="~/images/endustri.jpg" alt="Nature" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/fjords.jpg" target="_blank">
+                        <img src="~/images/lock.jpg" alt="Fjords" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/lights.jpg" target="_blank">
+                        <img src="~/images/machine.jpg" alt="Lights" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/nature.jpg" target="_blank">
+                        <img src="~/images/net.jpg" alt="Nature" style="width:100%; height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/fjords.jpg" target="_blank">
+                        <img src="~/images/network.jpg" alt="Fjords" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/lights.jpg" target="_blank">
+                        <img src="~/images/oop.jpg" alt="Lights" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/nature.jpg" target="_blank">
+                        <img src="~/images/solid.png" alt="Nature" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 opacity">
+                <div class="thumbnail">
+                    <a href="/w3images/fjords.jpg" target="_blank">
+                        <img src="~/images/home-bg.jpg" alt="Fjords" style="width:100%;height:250px;">
+                        <div class="caption">
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</header>
+

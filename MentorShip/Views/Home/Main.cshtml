@@ -1,0 +1,409 @@
+﻿@model MixModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Dashboard Template · Bootstrap</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <!-- Bootstrap core CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    
+    <style>
+        html {
+            font-size: 15px;
+        }
+        
+
+
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="~/css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark " style="position:relative;">
+        <a class=" mt-2 text-center text-uppercase" href="#" style="position:absolute; margin-left:0px; color:white;">@ViewBag.message</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <ul class="navbar-nav px-3">
+
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/Login/LogOut">Oturumu Kapat</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="Profil">
+                                <i class="fas fa-home"></i>
+                                <span>Profil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Mesajlar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Hesap</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Mentorler">
+                                <i class="fas fa-users"></i>
+                                <span>Mentorler</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="fas fa-bookmark"></i>
+                                <span>Diger</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Login/LogOut/">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Oturumu Kapat
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+            <div class="col-md-6" id="col-right" style="margin-left:20%;">
+                <div class="Profil">
+                    <div class="container">
+
+                        @foreach (var item in Model.resumes)
+                        {
+
+
+
+                            <form class="form-group" action="/StudentInfo/UpdateResume/" method="post">
+                                <input type="tel" value="@item.PhoneNumber" name="PhoneNumber" placeholder="Telefon Numarası" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.Address" name="Address" placeholder="Adres" class="form-control" style="margin-bottom:5px;" />
+                                <input type="datetime" value="@item.Dob" name="Dob" placeholder="Doğum Tarihi" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.Experience" name="Experience" placeholder="Deneyim" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.HighSchool" name="HighSchool" placeholder="Lise" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.University" name="University" placeholder="Üniversite" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.ForeignLanguages" name="ForeignLanguages" placeholder="Yabancı Dil" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.Skills" name="Skills" placeholder="Yetkinlikler" class="form-control" style="margin-bottom:5px;" />
+                                <input type="text" value="@item.Hobbies" name="Hobbies" placeholder="Hobiler" class="form-control" style="margin-bottom:5px;" />
+                                <input type="hidden" value="@item.Sid" name="Sid" placeholder="Hobiler" class="form-control" style="margin-bottom:5px;" />
+                                <input type="hidden" value="@item.Mid" name="Mid" placeholder="Hobiler" class="form-control" style="margin-bottom:5px;" />
+
+                                <input type="submit" value="Gönder" class="form-control btn btn-success" style="margin-bottom:5px;" />
+
+                            </form>
+
+
+
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="Mesajlar" style="display:none;">
+
+        <div class="container">
+
+            <div id="chat-cont" class="clearfix" style="max-height:450px;overflow:scroll;">
+
+            </div>
+
+            <div style="margin-top:470px;margin-left:40%;bottom:50px !important;" class="footer navbar-fixed-bottom">
+                <div class="row"><h5>Connection ID : <span id="connectionId"></span></h5></div>
+                <div class="row">
+                    <div class="col-md-7"><input type="text" id="sender" value="@ViewBag.message"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7"><input type="text" placeholder="ReceiverId" id="client"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7" style="position:relative;"> <input type="text" id="txtMessage" class="form-control" style="width:70%;"></div>
+                    <div class="col-md-5" style="position:absolute;margin-left:40%;"> <button id="msg-send" class="btn btn-success">Send</button></div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="Mentorler" style="display:none;margin-left:8%;">
+
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model.mentors)
+                {
+
+                    <div class="card" style="width:28%;display:inline-block;text-align:center;margin-left:20px;margin-bottom:10px;overflow:hidden;">
+                        <img class="card-img-top img-fluid" src="~/images/login3.png" alt="Card image cap" style="width:200px;height:140px;">
+                        <div class="card-body">
+                            <h5 class="card-title ">@item.Ad @item.Soyad</h5>
+                            <p class="card-text" id="metin" style="text-align:justify;text-align:inherit;">
+                                @item.Departmant bölümü mezunu Mentorumuz @item.Job olarak hizmet vermektedir.
+                            </p>
+
+                            <a href="articles.html/Merhaba" class="btn btn-success" style="font-size:1rem;">Contact</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    </div>
+    <div class="Hesap" style="display:none;">
+        <div class="container">
+            <form class="modal-content animate" action="/Register/Update/" method="post">
+                <input type="email" id="mail" value="@ViewContext.HttpContext.Request.Query["user"]" name="Email" class="form-control" style="margin-bottom:5px; width:400px;" />
+                <input type="password" id="password" placeholder="Yeni Şifreniz" class="form-control" name="Parola" style="margin-bottom:5px;width:400px;position:relative;" />
+                <input type="text" id="text" placeholder="Yeni Şifreniz" class="form-control" name="Parola" style="margin-bottom:5px;width:400px;position:relative;display:none;" />
+                <span style="position:absolute;left:375px;top:47px;" id="eyes"><i class="fas fa-eye fa-1x"></i></span>
+                <span style="position:absolute;left:375px;top:47px;display:none;" id="clos-eyes"><i class="fas fa-eye-slash"></i></span>
+                <input type="submit" value="Güncelle" class="form-control btn btn-success" style="margin-bottom:5px;width:200px;" />
+            </form>
+
+        </div>
+    </div>
+
+    <div class="Diger" style="display:none;">
+        <div class="container" style="text-align: justify;margin-top: 20px;margin-bottom: 30px;font-family: 'Noto Serif', serif;">
+            Kullanıcı Sözleşmesi
+            <br /><br />
+            MADDE 1– TARAFLAR
+            <br /><br />
+            İşbu sözleşme ve  <br /><br />ekleri (EK-1 Gizlilik Sözleşmesi) “Kavacık Mahallesi, Ertürk Sokak, No:1 K 1 Plaza Kavacık/İstanbul” adresinde mukim “Mentorluk Avantaj ve Ödüllendirme Hizmetleri Anonim Şirketi” ve Saray Mahallesi Site Yolu Sokak No:18 Kat:1 34768 Ümraniye/İstanbuladresinde mukim “Mentorluk Entegre Hizmet Yönetimi Anonim Şirketi” (bundan böyle "Mentorluk" olarak anılacaktır) ile Mentorluk mobil uygulamalarından işbu sözleşmede belirtilen koşullar dahilinde yararlanan Kullanıcı ile karşılıklı olarak kabul edilerek yürürlüğe girmiştir.
+            <br /><br />
+            MADDE 2– TANIMLAR
+            <br /><br />
+            2.1. İnternet sitesi Mentorluk.com.tr. adlı internet sitesini ifade etmektedir.
+            <br />
+
+            2.2. Uygulama : İnternet sitesinden sunulan hizmetleri ifade etmektedir. (Bundan sonra “Uygulama” olarak anılacaktır.)
+            <br />
+            2.3. Kullanıcı: Uygulamadan Mentorluk tarafından sunulan hizmetlerden işbu sözleşmede belirtilen koşullar dahilinde yararlanan kişileri ifade etmektedir. (Bundan böyle "Kullanıcı” olarak anılacaktır.)
+            <br />
+            2.5. İletişim Kanalları: Anında bildirim, e-posta, sms, mms, telefon ile bildirim gibi iletişim mecralarını ifade eder.
+            <br />
+            2.6. Mesaj: Mentorluk’nun, Kullanıcılara pazarlama, araştırma, bilgilendirme vb. amaçlarla göndereceği, Kullanıcıların Mentorluk tarafından kendilerine gönderilmesine izin verdikleri mesajları ifade eder.
+            <br /> <br />
+            MADDE 3– KONU VE KAPSAM
+            <br />
+            3.1. İşbu sözleşmenin konusu; Kullanıcıya yönelik olarak uygulamada mevcut olan ve ileride Mentorluk tarafından sunulacak tüm ürün ve hizmetlerin, bu ürün ve hizmetlerden yararlanma şartlarının ve tarafların hak ve yükümlülüklerinin tespitidir.
+            <br />
+            3.2. Kullanıcı, işbu sözleşme hükümlerini kabul etmekle, Uygulama içinde yer alan kullanıma, üyeliğe ve hizmetlere ilişkin Mentorluk tarafından açıklanan her türlü beyanı da kabul etmiş olmaktadır. Kullanıcı, bahsi geçen beyanlarda belirtilen her türlü hususa uygun olarak davranacağını kabul, beyan ve taahhüt eder.
+            <br /><br />
+            MADDE 4– UYGULAMA KULLANIM ŞARTLARI
+            <br /><br />
+            4.1. Reşit olmayan veya tüzel kişi üyeler için tüzel kişiyi temsil ve ilzam etmeye yetkili olmayan kişiler kanalıyla yapılan başvurular, kayıt işlemlerini tamamlamış olsa dahi "Kullanıcının" doğurduğu haklardan yararlanamazlar. Aksi yöndeki talep ve işlemler Mentorluk’nun sorumluğunda değildir.
+            <br />
+            4.2. Mentorluk, her zaman herhangi bir gerekçe göstermeden, herhangi bir bildirimde bulunmadan ve herhangi bir tazminat ödeme yükümlülüğü bulunmadan ve derhal yürürlüğe girecek şekilde işbu sözleşmeyi tek taraflı olarak feshedebilir ve Kullanıcının işbu Uygulamadan yararlanmasına son verebilir.
+            <br /><br />
+            MADDE 5– KARŞILIKLI HAK VE YÜKÜMLÜLÜKLER
+            <br /><br />
+            5.1. Kullanıcı Hak ve Yükümlülükleri:
+            <br />
+            a) Kullanıcı, kullanıcı prosedürlerini yerine getirirken, Uygulamadaki ürün veya hizmetlerden faydalanırken ve Uygulamadaki ürün veya hizmetler ile ilgili herhangi bir işlemi yerine getirirken işbu sözleşme içerisinde yer alan tüm şartlara, Mentorluk internet sitesinde belirtilen kurallara ve yürürlükteki tüm mevzuata uygun hareket edeceğini, işbu sözleşmede belirtilen tüm şart ve kuralları okuduğunu, anladığını ve onayladığını kabul eder.
+            <br />
+            b) Kullanıcı, Mentorluk’nun yasal mevzuat gereği resmi makamlara açıklama yapmakla yükümlü olduğu durumlarda, resmi makamlarca usulü dairesinde bu bilgilerin talep edilmesi halinde, Kullanıcılara ait, Uygulama dahilinde edinilen bilgileri resmi makamlara açıklamaya yetkili olacağını ve bu sebeple kendisinden her ne nam altında olursa olsun tazminat talep edilemeyeceğini kabul eder.
+            <br />
+            c) Kullanıcı, Mentorluk’nun iş bu Sözleşme konusu ürün ve hizmetleri ifasına yönelik olarak ve/veya bu amaçla anlaşma akdettiği iş ortaklarına, Kullanıcıya ait ticari bilgileri açıklamaya yetkili olacağını, bu hususu kabul ettiğini beyan ederek bu sebeple Mentorluk’dan her ne nam altında olursa olsun tazminat talep edilemeyeceğini kabul eder.
+            <br />
+            d) Kullanıcı, Uygulama dahilinde kendisi tarafından sağlanan bilgilerin ve içeriklerin doğru ve hukuka uygun olduğunu kabul ve taahhüt eder. Mentorluk, Kullanıcı tarafından Mentorluk’ya iletilen veya Uygulama üzerinden kendisi tarafından yüklenen, değiştirilen ve sağlanan bilgilerin ve içeriklerin doğruluğunu araştırma, bu bilgi ve içeriklerin güvenli, doğru ve hukuka uygun olduğunu taahhüt ve garanti etmekle yükümlü ve sorumlu olmadığı gibi, söz konusu bilgi ve içeriklerin yanlış veya hatalı olmasından dolayı ortaya çıkacak hiçbir zarardan da sorumlu değildir.
+            <br />
+            e) Kullanıcı, Mentorluk’ya verdiği iletişim kanallarının yalnızca kendisine ait ve yalnızca kendi kontrolü altındaki iletişim kanalları olduğunu ve bu iletişim kanallarını aktif olarak kullandığını taahhüt eder. Aksi halde, Kullanıcı iletişim kanallarının üyenin kendisine ait olmamasından veya İletişim Kanallarını aktif olarak kullanmamasından dolayı Mentorluk’nun uğrayabileceği her türlü maddi ve manevi zararı tazminle yükümlü olacaktır.
+            <br />
+            f) Mentorluk'nun sunduğu ürün ve hizmetlerden yararlananlar, Uygulama dahilinde yalnızca hukuka uygun amaçlarla işlem yapabilirler. Kullanıcının, Uygulama dahilinde yaptığı her işlem ve eylemdeki hukuki ve cezai sorumluluk kendisine aittir. Kullanıcılar, Uygulamayı kullanırken Türk Ceza Kanunu, Türk Ticaret Kanunu, Borçlar Kanunu, 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun, Fikir ve Sanat Eserleri Kanunu, Marka, Patent, Faydalı Model, Endüstriyel Tasarım Haklarının Korunması ile ilgili kanun hükmünde kararnameler ve yasal düzenlemeler, halihazırda yürürlükte olan ilgili her türlü mevzuat hükümleri ile Mentorluk'nun Uygulamaya ilişkin olarak yayımlayacağı bildirimlere uymayı kabul eder.
+            <br />
+            g) Kullanıcı işbu uygulamanın Mentorluk’ya ait olduğunu ve onun tarafından işletildiğini kabul eder. İşbu uygulamanın içeriği Fikri ve Sınai haklar doğrultusunda korunmaktadır. Kullanıcı, Mentorluk ve/veya başka bir üçüncü şahsın aynı veya şahsi haklarına, malvarlığına tecavüz teşkil edecek nitelikteki Uygulama dahilinde bulunan resimleri, metinleri, görsel ve işitsel imgeleri, video klipleri, dosyaları, veri tabanlarını, katalogları ve listeleri çoğaltmayacağını, kopyalamayacağını, dağıtmayacağını, işlemeyeceğini kabul ve taahhüt etmektedir.
+            <br />
+            h) Uygulamada ve Uygulama üzerinden link verilen internet sitelerinde, Kullanıcı de dahil olmak üzere üçüncü kişiler tarafından yayınlanan içeriklerden dolayı Mentorluk’nun sorumluluğu bulunmamaktadır. Herhangi bir üçüncü kişi tarafından sağlanan ve yayınlanan bilgilerin, içeriklerin, görsel ve işitsel imgelerin doğruluğu ve hukuka uygunluğunun taahhüdü bütünüyle bu eylemleri gerçekleştiren kişilerin sorumluluğundadır. Mentorluk, üçüncü kişiler tarafından sağlanan hizmetlerin ve içeriklerin güvenliğini, doğruluğunu ve hukuka uygunluğunu taahhüt ve garanti etmemektedir.
+            <br />
+            i) Kullanıcı ve Mentorluk birbirinden bağımsız taraflardır. İşbu Sözleşme'nin Taraflarca onaylanması ve uygulanması, aralarında ortaklık, temsilcilik veya işçi– işveren ilişkisi olduğu sonucunu doğurmaz.
+            <br />
+            j) Kullanıcı işbu Sözleşme kapsamında üçüncü kişilere göndereceği referans mesajlarının hukuka ve ahlaka aykırı unsurlar içermeyeceğini kabul, beyan ve taahhüt eder. Kullanıcı, göndereceği elektronik postalar ile üçüncü kişilerce istenmeyen elektronik posta iletişimi olarak nitelendirilebilecek yoğunlukta bir iletişimde bulunmayacağını kabul, beyan ve taahhüt eder. Kullanıcı, bu madde hükmüne aykırı olarak yapacağı bütün iletişimin sorumluluğunun kendisine ait olduğunu, her ne sebeple olursa olsun bu iletişimlerden kaynaklı olarak Mentorluk’ya bir dava ve talep yöneltilmesi halinde; bu dava ve talebin Mentorluk tarafından kendisine ihbar edilebileceğini, Mentorluk’nun savunma yapması için gerekli olan her türlü bilgi ve içeriği kendisine savunma için gerekli yasal sürelerin geçirilmemesini teminen derhal sağlayacağını, bahsi geçen dava ve talep sonucunda Mentorluk’nun herhangi bir zarara uğraması durumunda bahsi geçen zararın Mentorluk tarafından, tazminat hakları saklı kalmak kaydıyla, kendisine rücu ettirilebileceğini kabul, beyan ve taahhüt eder. Kullanıcının iş bu maddeye aykırı hareket etmesi sebebiyle Mentorluk iş bu Sözleşmeyi herhangi bir bildirimde bulunmadan tek taraflı olarak feshetme, üyeliği askıya alma veya iptal etme hakkını saklı tutmaktadır.
+            <br />
+            5.2. Mentorluk’nun Hak ve Yükümlülükleri:
+            <br /><br />
+            a) Mentorluk, Uygulama'da sunulan ürün ve hizmetleri ve içerikleri her zaman tek taraflı olarak değiştirebilme, Kullanıcının sisteme yüklediği bilgileri ve içerikleri Kullanıcı da dahil olmak üzere üçüncü kişilerin erişimine kapatabilme ve silme hakkını saklı tutmaktadır. Mentorluk, bu hakkını hiçbir bildirimde bulunmadan ve önel vermeden kullanabilir. Mentorluk tarafından Kullanıcıdan talep edilen değişiklik ve/veya düzeltme istekleri belirtilen süre içerisinde yerine getirilmediği takdirde doğmuş ve doğabilecek zararlardan Mentorluk sorumlu olmayacak ve Kullanıcının Uygulamayı kullanma hakkını dondurabilme veya sonlandırma hakkına sahip olacaktır.
+            <br />
+            b) Referans kolaylığı veya çeşitli sebepler nedeniyle Uygulama içerisinde Mentorluk kontrolünde olmayan bir takım web sitelerine veya içeriklere linkler verilebilir. Bu linkler bahsi geçen web sitesini veya içerik sahibini destekleyici mahiyette olmadığı gibi, web sitesi veya içerikte yer alan bilgilere yönelik herhangi bir türde bir beyan veya garanti niteliği de taşımamaktadır. Mentorluk, üçüncü kişilerin web sitelerinin muhtevasının burada sayılanlarla sınırlı olmamakla birlikte; yasal, doğru, güvenilir, yerinde ve uygun olduğu, içeriğinde kullanılan bilgi, veri, yazılım, ürün veya hizmetlerin ticarete elverişli nitelikte olduğu, web sitesinin işletme ve idaresinin hatasız ve kesintisiz olacağı, aksaklıklar, kusur ve bozuklulukların düzeltileceği, web sitesinin zarar verici unsurlardan ve virüslerden temizlenmiş olduğu hususlarında herhangi bir öneri ve tavsiyede bulunmamakta ve bu hususlarda kullanıcıya herhangi bir güven, beyan ve teminat vermemektedir. Uygulama üzerindeki linkler vasıtasıyla erişilen portallar, web siteleri, dosyalar ve içerikler, bu linkler vasıtasıyla erişilen portallar veya web sitelerinden sunulan hizmetler veya ürünler veya bunların içeriği hakkında Mentorluk’nun herhangi bir sorumluluğu yoktur.
+            <br />
+            c) Mentorluk, Uygulama'da yer alan Kullanıcı bilgilerini Hizmetler dışında da Kullanıcı güvenliği, kendi yükümlülüğünü ifa ve bazı istatistiki değerlendirmeler ve iç denetimler için veya demografik bilgi olarak reklam ve/veya tanıtım için dilediği biçimde kullanabilir, bunları bir veri tabanı üzerinde tasnif edip muhafaza edebilir.
+            <br />
+            d) Mentorluk, işbu Uygulama ve uzantısında mevcut her tür hizmet, ürün, Uygulamayı kullanma koşulları ile Uygulamada sunulan bilgileri önceden bir ihtara gerek olmaksızın değiştirme, yeniden organize etme, Uygulamayı durdurma hakkını saklı tutar. Değişiklikler, Uygulamada yayım anında yürürlüğe girer. Kullanıcılar, Uygulamanın kullanımı ya da Uygulamaya giriş ile bu değişiklikleri de kabul etmiş sayılır. Değişiklikler, Mentorluk tarafından belirlenen mecra üzerinden Kullanıcılara duyurulur.
+            <br />
+            e) Mentorluk, Uygulama kapsamında verdiği hizmetlerin sürekli aktif ve erişilebilir olacağına dair hiçbir garanti vermemektedir. Mentorluk özellikle yargı ve sair yetkili resmi merci karar ve uygulamaları, mücbir sebepler, üçüncü kişilerin sebep olduğu durumlar, Internet bağlantı hizmeti sağlayan kuruluşlardan kaynaklanan aksaklıklar ve gecikmeler ve benzeri dış etkenler, yanlış kullanım, Mentorluk’dan kaynaklanabilecek teknik arıza ve sair aksaklıklar, tamir çalışmaları veya diğer yönlendirmeler sonucu meydana gelen aksaklıklar konusunda hiçbir şekilde sorumluluk kabul etmez.
+            <br />
+            f) Mentorluk gerektiğinde, ağın işletim güvenliğinin tehlikede olması, ağa erişimin devamlılığı, ağda, yazılımda veya kayıtlı dosyalarda meydana gelebilecek arızaların önüne geçebilmek, muhtemel aksaklıkları engellemek veya etkisini azaltmak adına ve gerekli gördüğü diğer durumlarda hizmete erişimi sınırlandırabilir veya durdurabilir.
+            <br />
+
+            <br />
+            MADDE 7– GİZLİLİK
+            <br /><br />
+            Mentorluk, Kullanıcılarla ilgili bilgileri işbu Sözleşme'nin kapsamı dışında işbu Sözleşme'nin EK-1 bölümünde yer alan ve Kullanıcı Sözleşmesi'nin ayrılmaz bir parçası olan "Gizlilik Sözleşmesi" kapsamında kullanabilir. Mentorluk, Kullanıcılara ait gizli bilgileri, işbu Sözleşme'nin kapsamı dışında ancak "Gizlilik Sözleşmesi"nde belirtilen koşullar dahilinde üçüncü kişilere açıklayabilir veya kullanabilir. Sitede, Mentorluk web sitesinin virüs ve benzeri amaçlı yazılımlardan arındırılmış olması için mevcut imkânlar dâhilinde tedbir alınmış olmakla birlikte, nihai güvenliğin sağlanması için kullanıcı, kendi virüs koruma sistemini tedarik etmek ve gerekli korumayı sağlamakla yükümlüdür. Bu çerçevede kullanıcı, Mentorluk web sitesine girmesi nedeniyle, kendi yazılım ve işletim sistemlerinde oluşabilecek tüm hata ve bunların doğrudan ya da dolaylı sonuçlarından kendisinin sorumlu olduğunu kabul eder. Mentorluk, kendi takdirinde olmak üzere sitenin içeriğini dilediği zaman değiştirme, kullanıcılara sağlanan herhangi bir hizmeti değiştirme ya da sona erdirme Mentorluk web sitesinin hatasız olması için her türlü tedbir almış olmakla birlikte, sitede mevcut ya da oluşabilecek hatalar ve kesintiler ile ilgili herhangi bir garanti verilmemektedir. Mentorluk web sitesi, sizi tanımlamamıza yardımcı olması için bilgisayarınıza bilgi yerleştirilebilir. Bu bilgi, genel olarak "cookie" olarak bilinir. Cookie kullanımı, bir sanayi standardıdır ve birçok web sitesi bunları kullanmaktadır. Cookie´ler bilgisayarınıza kaydedilir. Cookie almak istiyorsanız ya da ne zaman yerleştirildiklerini bilmek istiyorsanız, web tarayıcınızda bu özellik varsa, web tarayıcınızı bunu yapacak şekilde ayarlayabilirsiniz. İstatsitik izleme programı olan Google AnalyticsMentorluk’ya web tarayıcınız tarafından otomatik olarak gönderilen bilgileri toplamaktadır. Bu bilgiler tipik olarak sizin İnternet servis sunucunuzun IP adresi, işletim sisteminizin ismi ve web tarayıcınızın versiyonunu içermektedir. Lütfen, tarayıcınızın ne gibi bilgiler gönderdiğini ya da ayarlarınızı nasıl değiştireceğinizi öğrenmek istemeniz halinde tarayıcınızı kontrol edin. Tarayıcınız tarafından sağlanan bilgiler sizi kişisel olarak tanımlamaz. Biz bu bilgileri sitelerimizi geliştirmemize ve onları internet ziyaretçilerimiz tarafından kullanılan teknoloji ile daha uyumlu hale getirmemize yardımcı olan istatistikler oluşturmak için kullanmaktayız.
+            <br /><br />
+            MADDE 8– UYGULANACAK HUKUK VE YETKİLİ MAHKEME
+            <br /><br />
+            İşbu Sözleşme'nin uygulanmasında ve yorumlanmasında Türk Hukuku uygulanacaktır. İşbu Sözleşme'den dolayı doğan veya doğabilecek her türlü ihtilafın hallinde İstanbul Merkez Mahkemeleri ve İcra Daireleri yetkilidir.
+            <br /><br />
+            MADDE 9– FİKRİ MÜLKİYET HAKLARI
+            <br /><br />
+            Uygulama'nın (genel görünüm, tasarım, metin, imge, logo, ikon, demonstratif, yazılı, elektronik, grafik veya makinede okunabilir şekilde sunulan teknik verileri, Mentorluk markası, uygulanan iş metodu ve iş modeli, yazılım kodu ve diğer kodlar da dahil ve fakat bunlarla sınırlı olmamak kaydıyla) tüm unsurları Mentorluk’ya aittir ve/veya Mentorluk tarafından üçüncü bir kişiden alınan telif hakkı altında kullanılmaktadır. Fikri ve Sınai haklar kapsamında korunan Mentorluk’ya ait tüm bu unsurlar önceden izin alınmadan ve kaynak gösterilmeden değiştirilemez, kopyalanamaz, çoğaltılamaz, başka bir lisana çevrilemez, yeniden yayımlanamaz, yeniden satılamaz, paylaşılamaz, dağıtılamaz, sergilenemez, Kullanıcı Sözleşmesi kapsamı dışında kullanılamaz veya bunlardan türemiş çalışmalar yapılamaz veya hazırlanamaz, aksi şekilde davranılması halinde, sorumlu kişi/kişiler Mentorluk’nun uğradığı zararı ve/veya lisans verenler de dahil üçüncü kişilerin uğradıkları zararlardan dolayı Mentorluk’dan talep edilen tazminat miktarını, mahkeme masrafları ve avukatlık ücreti de dahil olmak üzere karşılamakla yükümlü olacaklardır.
+            <br /><br />
+            MADDE 10– SÖZLEŞME DEĞİŞİKLİKLERİ
+            <br /><br />
+            Mentorluk, tamamen kendi takdirine bağlı ve tek taraflı olarak, işbu Kullanıcı Sözleşmesi'ni veya herhangi bir hükmünü ve eklerini, uygun göreceği herhangi bir zamanda, Uygulama'da ilan etmek suretiyle değiştirebilir. İşbu Kullanıcı Sözleşmesi'nin değişen hükümleri, ilan edildikleri tarihte veya önceden belirtilen geçerlilik tarihi olması halinde ise geçerlilik tarihinde geçerlilik kazanacak; geri kalan hükümler, aynen yürürlükte kalarak hüküm ve sonuçlarını doğurmaya devam edecektir. İşbu Kullanıcı Sözleşmesi, üyelerin tek taraflı beyanları ile değiştirilemez.
+            <br /><br />
+            MADDE 11– MÜCBİR SEBEPLER
+            <br /><br />
+            11.1. Mücbir sebep terimi, doğal afet, isyan, savaş, grev, Mentorluk’nun gerekli bilgi güvenliği önlemleri almasına karşın Uygulama, Portal ve sisteme yapılan saldırılar da dahil ve fakat bunlarla sınırlı olmamak kaydıyla Mentorluk’nun makul kontrolü haricinde gelişen ve Mentorluk’nun gerekli özeni göstermesine rağmen önleyemediği kaçınılamayacak olaylar olarak yorumlanacaktır.
+            <br />
+            11.2. Mücbir sebep sayılan tüm durumlarda, Taraflar işbu Sözleşme ile belirlenen edinimlerinden herhangi birini geç veya eksik ifa etme veya ifa etmeme nedeniyle yükümlü değildir.
+            <br /><br />
+            MADDE 12– KAYITLARIN GEÇERLİLİĞİ
+            <br /><br />
+            Kullanıcı, işbu Sözleşme' den doğabilecek ihtilaflarda Mentorluk’nun kendi veri tabanında, sunucularında tuttuğu elektronik ve sistem kayıtlarının, ticari kayıtlarının, defter kayıtlarının, mikrofilm, mikrofiş ve bilgisayar kayıtlarının muteber bağlayıcı, kesin ve münhasır delil teşkil edeceğini ve bu maddenin HMK 193. madde anlamında delil sözleşmesi niteliğinde olduğunu kabul, beyan ve taahhüt eder.
+            <br /><br />
+            MADDE 14– TEBLİGAT ADRESLERİ
+            <br /><br />
+            14.1. Kullanıcıların, Mentorluk’ya bildirdiği elektronik posta adresi, bu sözleşme ile ilgili olarak yapılacak her türlü bildirim için yasal adresin isteneceği elektronik posta olarak kabul edilir.
+            <br />
+            14.2. Taraflar, mevcut elektronik postalarındaki değişiklikleri yazılı olarak diğer tarafa 3 (üç) gün içinde bildirmedikçe, eski elektronik postalara yapılacak isteklerin geçerli olacağını ve kendilerine yapılmış sayılacağını kabul ederler.
+            <br /><br />
+            MADDE 15–YÜRÜRLÜK
+            <br /><br />
+            15.1. Kullanıcı, işbu sözleşmede yer alan maddelerin tümünü okuduğunu, anladığını, kabul ettiğini ve kendisiyle ilgili olarak verdiği bilgilerin doğruluğunu onayladığını beyan, kabul ve taahhüt eder.
+            <br /><br />
+            EK - GİZLİLİK SÖZLEŞMESİ
+            <br /><br />
+            1. Mentorluk, kişisel bilgi ve veri güvenliğini önemsemekte ve bu hususta gerekli olan tüm tedbirleri almaya özen göstermektedir. Kullanıcılar da Uygulamayı kullanarak işbu gizlilik sözleşmesi hükümlerine uygun davranacaklarını kabul, beyan ve taahhüt ederler.
+            <br />
+            2. İşbu Gizlilik Sözleşmesi, Uygulamanın tüm bölümlerinde geçerli olacaktır.
+            <br />
+            3. Kullanıcıların bilgilerinin korunması ve gizliliğin sürdürülebilmesi Mentorluk’nun birinci önceliğidir. Bu nedenle Kullanıcıların vermiş olduğu bilgiler sözleşmede belirtilen kurallar ve amaçlar dışında herhangi bir kapsamda kullanılmayacak, üçüncü şahıslarla paylaşılmayacaktır.
+            <br />
+            4Mentorluk, kendisine iletilen kişisel verileri ve bilgileri, bilgilerin toplanması ile ilgili açıklanan yukarıdaki amaçlar dışında üçüncü kişilerle kesinlikle paylaşmayacak, satışını yapmayacak ve hiç bir şart altında kullanılmasına izin vermeyecektir.
+            <br />
+            5. Uygulamadaki sistemle ilgili sorunların tanımlanabilmesi ve Uygulamada çıkabilecek muhtemel sorunların acil olarak giderilmesi için, Mentorluk gerektiğinde Kullanıcıların IP adresini, sosyal ağ kullanıcı hesabında kayıtlı bilgileri kaydedebilir ve bu kayıtları anılan bu amaçlarla kullanabilir. Bu IP adresleri, Mentorluk tarafından kullanıcılarını ve ziyaretçilerini genel anlamda tanımlamak ve kapsamlı şekilde demografik veri toplayabilmek amacıyla kullanılabilir.
+            <br />
+            6. Uygulama kapsamında elde edilen bilgiler Mentorluk ve işbirliği içinde olduğu diğer kişi ve kurumlar tarafından Kullanıcının kimliği hiç bir şekilde açığa çıkarılmaksızın sadece çeşitli istatistiki değerlendirmeler, izinli pazarlama, veri tabanı oluşturma çabaları ve pazar araştırmaları yapma gibi durumlar dahilinde kullanılabilir.
+            <br />
+            7. Mentorluk, Uygulama içerisinde başkaca sitelere link (bağlantı) sağlayabilir, anlaşmalı olduğu 3. Partilerin reklamlarını yayınlayabilir, Kullanıcıları reklamlar aracılığıyla reklam veren veya anlaşmalı 3. partilerin sitesine yönlendirebilir. Mentorluk, bu bağlantı yoluyla erişilen diğer Uygulamaların gizlilik uygulama ve politikalarına ya da barındırdıkları içeriklere yönelik olmak üzere hiç bir sorumluluk taşımamaktadır.
+            <br />
+            8. Mentorluk, aşağıda sayılan hallerde ise işbu gizlilik bildirimi hükümleri dışına çıkarak kullanıcılara ait bilgileri üçüncü kişilere açıklayabilecektir. Bu durumlar; • Hukuk kurallarının getirdiği zorunluluklara uyulmasının gerektiği haller, • Mentorluk’nun, Kullanıcılarıyla arasındaki sözleşmelerin gereklerinin yerine getirilmesi ve bunların uygulamaya konulmalarıyla ilgili hallerde, • Yetkili idari ve/veya adli makamlar tarafından usuli yöntemine uygun olarak yürütülen bir araştırma veya soruşturma doğrultusunda Kullanıcılarla ilgili bilgi talep edilmesi halleri, • Kullanıcıların haklarını veya güvenliklerini koruma amacıyla bilgi verilmesinin gerekli olduğu haller.
+            <br />
+            9. Mentorluk, kendisine verilen gizli bilgileri kesinlikle özel ve gizli tutmayı, bunu bir sır olarak saklamayı yükümlülük olarak kabul ettiğini ve gizliliğin sağlanıp sürdürülmesi, gizli bilginin tamamının veya herhangi bir parçasının kamu alanına girmesini veya yetkisiz kullanımını veya üçüncü bir kişiye açıklanmasını önleme gereği olan gerekli tüm tedbirleri almayı ve üzerine düşen tüm özeni tam olarak göstermeyi taahhüt etmektedir.
+            <br />
+            10. Mentorluk tarafından Uygulamalar içerisinde düzenlenebilecek periyodik veya periyodik olmayan anketlere cevap veren Kullanıcılardan talep edilebilecek bilgiler de, Mentorluk ve işbirliği içindeki kişi ya da kurumlar tarafından bu kullanıcılara doğrudan pazarlama yapmak, istatistiki analizler yapmak ve özel bir veri tabanı oluşturmak amacıyla da kullanılabilecektir.
+            <br />
+            11. Mentorluk, işbu gizlilik bildiriminde geçen hükümleri gerekli gördüğü zamanda Uygulamada yayınlamak şartıyla değiştirebilir. Mentorluk’nun değişiklik yaptığı gizlilik bildirimi hükümleri Uygulamada yayınlandığı tarihte yürürlüğe girmiş kabul edilir.
+            <br />
+            12. İşbu Gizlilik Sözleşmesi, 12 (oniki) maddeden ibaretttir.
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(".fa-eye").click(function () {
+            var deger = $("#password").val();
+            $("#password").css("display", "none");
+            $("#eyes").css("display", "none");
+            $("#text").css("display", "block");
+            $("#text").val(deger);
+
+            $("#clos-eyes").css("display", "block");
+
+        });
+        $(".fa-eye-slash").click(function () {
+            var deger = $("#text").val();
+            $("#text").css("display", "none");
+            $("#clos-eyes").css("display", "none");
+            $("#password").css("display", "block");
+            $("#password").val(deger);
+
+            $("#eyes").css("display", "block");
+
+        });
+    </script>
+    <script>
+
+        $(".sidebar-sticky .nav-link").click(function () {
+
+            $("#col-right>div").css("display", "none");
+            var deger = $(this).children("span").text();
+            var sonuc = $("." + deger).show();
+            $("#col-right").append(sonuc);
+
+        });
+        $(window).resize(function () {
+            if ($(window).width() <= 767) {
+                $(".Mentorler .card").css("width", "100%");
+
+            }
+            if ($(window).width() > 1120) {
+                $(".Mentorler .card").css("width", "28%");
+            } if ($(window).width() < 1120 && $(window).width() > 768) {
+                $(".Mentorler .card").css("width", "45%");
+
+            }
+
+        });
+            /*
+$("#profile").click(function () {
+$("#resume").css("display", "block");
+$("#chat").css("display", "none");
+});
+$("#mentors").click(function () {
+$("#resume").css("display", "none");
+$("#mentorr").css("display", "block");
+});
+*/
+    </script>
+
+
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js" asp-append-version="true"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+
+    <script src="~/js/dashboard.js"></script>
+</body>
+</html>
