@@ -15,6 +15,7 @@ namespace MentorShip.Models
         public DbSet<Student> Students { get; set; }
         public DbSet<Mentor> Mentors { get; set; }
         public DbSet<Resumes> Resumes { get; set; }
+        public DbSet<ForgetPassword>  ForgetPasswords { get; set; }
 
 
     }

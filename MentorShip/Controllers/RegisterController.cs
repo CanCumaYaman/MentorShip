@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,7 @@ namespace MentorShip.Controllers
             return SifrelenmisVeri;
 
         }
+        
        [HttpGet]
         public IActionResult SignUpMentor()
         {
@@ -111,7 +113,9 @@ namespace MentorShip.Controllers
 
             return RedirectToAction("Main", new RouteValueDictionary(
    new { controller = "Home", action = "Main", user = deger}));
+
         }
+       
     }
     
 }

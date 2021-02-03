@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "EnterCode";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:200px;">
+    <form method="post" action="/Home/ControlCode/">
+        <input type="text" class="form-control form-group" value="@ViewBag.message" name="Email"  style="width:400px;height:35px;" />
+        <input type="text" class="form-control form-group" name="code"  style="width:400px;height:35px;" placeholder="Kodu giriniz" />
+        <input type="submit" value="Gönder" class="btn btn-success"  style="margin-bottom:5px;width:10%;margin-top:10px;" />
+    </form>
+</div>
+

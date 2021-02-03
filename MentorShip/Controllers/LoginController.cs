@@ -49,7 +49,7 @@ namespace MentorShip.Controllers
             
           
             
-            return RedirectToAction("Index", "Home");
+            
         }
 
        
@@ -91,5 +91,6 @@ namespace MentorShip.Controllers
 
             return RedirectToAction("Index","Home");
         }
+
     }
 }

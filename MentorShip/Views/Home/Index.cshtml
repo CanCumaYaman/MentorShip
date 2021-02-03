@@ -25,14 +25,14 @@
                 <button type="submit" class="btn btn-block btn-outline-success btn-lg" id="signclick">Login</button>
                 <br>
                 <label style="font-size: medium; margin-left: 0%;">
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                    
+                    <input type="checkbox" checked="checked" name="remember">  @ViewBag.warning
+
                 </label>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-lg btn-danger">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <span class="psw">Forgot <a href="/Home/ForgetPassword/">password?</a></span>
             </div>
         </form>
     </div>
@@ -60,7 +60,7 @@
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-lg btn-danger">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <span class="psw">Forgot <a href="/Home/ForgetPassword/">password?</a></span>
             </div>
         </form>
     </div>

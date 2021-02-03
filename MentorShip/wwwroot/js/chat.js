@@ -45,7 +45,8 @@ $(document).ready(() => {
 
     connection.on("ReceiveMessage", function (user, message) {
         var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        var encodedMsg =  msg;
+        var encodedMsg = msg;
+        $("#senderuser").html(user);
         var div = document.createElement("div");
         div.textContent = encodedMsg;
         div.style.fontSize = "20px";
