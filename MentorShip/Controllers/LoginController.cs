@@ -46,10 +46,10 @@ namespace MentorShip.Controllers
                
                 return RedirectToAction("Main", "Home", new { user = nameuser });
             }
-            
-          
-            
-            
+
+
+            return RedirectToAction("Index", "Home");
+
         }
 
        
