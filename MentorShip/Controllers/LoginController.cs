@@ -9,6 +9,7 @@ using MentorShip.Hubs;
 using MentorShip.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace MentorShip.Controllers
 {
@@ -46,13 +47,12 @@ namespace MentorShip.Controllers
                
                 return RedirectToAction("Main", "Home", new { user = nameuser });
             }
-
-
             return RedirectToAction("Index", "Home");
+
 
         }
 
-       
+
         [HttpPost]
         public async Task<IActionResult> SignInMentor(Mentor m)
         {
@@ -82,7 +82,6 @@ namespace MentorShip.Controllers
 
 
             }
-
             return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> LogOut()

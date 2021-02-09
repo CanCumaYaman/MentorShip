@@ -151,7 +151,7 @@ namespace MentorShip.Controllers
             c.SaveChanges();
             SmtpClient smtp = new SmtpClient();
 
-            smtp.Credentials = new System.Net.NetworkCredential("bumdakum@gmail.com", "12345abc@");
+            smtp.Credentials = new System.Net.NetworkCredential("bumdakum@gmail.com", "166.1222a");
             smtp.Port = 587;
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;

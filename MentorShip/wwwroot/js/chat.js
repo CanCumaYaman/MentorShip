@@ -3,9 +3,11 @@
 
 $(document).ready(() => {
     var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
-    connection.on("connected", connecitonid => $("#connectionId").html(connecitonid));
-
-    connection.start();
+ 
+   
+    var email = $("#client").val();
+  
+    connection.start().then(() => connection.invoke('setUserEmail ', email));
 
     $("#msg-send").click(() => {
         let message = $("#txtMessage").val();
